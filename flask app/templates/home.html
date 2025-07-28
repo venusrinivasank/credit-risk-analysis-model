@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Credit Score Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Customer Credit Score Prediction</h2>
+    <form action="/predict" method="post">
+        <label for="Delay_from_due_date">Delay from Due Date:</label><br>
+        <input type="text" id="Delay_from_due_date" name="Delay_from_due_date" required><br>
+        <label for="Num_of_Delayed_Payment">Number of Delayed Payment:</label><br>
+        <input type="text" id="Num_of_Delayed_Payment" name="Num_of_Delayed_Payment" required><br>
+        <label for="Monthly_Balance">Monthly Balance:</label><br>
+        <input type="text" id="Monthly_Balance" name="Monthly_Balance" required><br>
+        <label for="Amount_invested_monthly">Amount Invested Monthly:</label><br>
+        <input type="text" id="Amount_invested_monthly" name="Amount_invested_monthly" required><br>
+        <label for="Total_EMI_per_month">Total EMI per Month:</label><br>
+        <input type="text" id="Total_EMI_per_month" name="Total_EMI_per_month" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
